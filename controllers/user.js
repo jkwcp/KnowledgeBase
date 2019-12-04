@@ -210,7 +210,7 @@ exports.message = (req,res,next) => {
             let user = data[0];
             res.render('message', {
                 user: user,
-                homeCSS: true
+                messageCSS: true
             });
         }
     });
