@@ -1,5 +1,6 @@
 let db = require('../models/userdb');
 let postdb = require('../models/postdb');
+let messagedb = require('../models/messagedb');
 
 /*
 exports.testConnection = (req, res, next) => {
@@ -210,8 +211,24 @@ exports.message = (req,res,next) => {
             let user = data[0];
             res.render('message', {
                 user: user,
+<<<<<<< HEAD
                 messageCSS: true
             });
         }
+=======
+                homeCSS: true
+            });
+        }
+    });
+}
+
+exports.conversations = (req, res, next) => {
+    const userId = req.session.user.id;
+    let convoList = messagedb.getConversations(userId);
+    convoList.then(([conversations, filedData]) => {
+        res.render('conversations', {
+            conversations: conversations
+        });
+>>>>>>> c71a24de9349d5691afef0eb40d69a1844c60265
     });
 }
